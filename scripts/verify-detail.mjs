@@ -1,0 +1,11 @@
+import { chromium } from 'playwright-core';
+const exe = 'C:/Users/Administrator/AppData/Local/ms-playwright/chromium-1255/chrome-win64/chrome.exe';
+const url = process.argv[2] ?? 'http://127.0.0.1:54529';
+const browser = await chromium.launch({ executablePath: exe, headless: true });
+const page = await browser.newPage();
+await page.goto(`${url}/#/settings`, { waitUntil: 'networkidle' });
+await page.click('text=运行核对');
+await page.waitForSelector('.info-box, .error-box', { timeout: 60000 });
+const rows = await page.$$eval('.mono > div', (els) => els.map((e) => e.textContent));
+console.log(rows.join('\n'));
+await browser.close();

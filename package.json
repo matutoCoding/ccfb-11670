@@ -1,0 +1,20 @@
+{
+  "name": "diamond-cut-studio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@webgpu/types": "^0.1.44",
+    "playwright-core": "^1.65.1",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.1",
+    "vitest": "^2.1.8",
+    "wgsl_reflect": "^1.6.0"
+  }
+}
